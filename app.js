@@ -13,7 +13,6 @@
   const NS = (typeof window !== 'undefined' && window.RAFFLER_NS) ? ':' + window.RAFFLER_NS : '';
   const STORAGE_KEY = 'raffler:contestants:v1' + NS;
   const HISTORY_KEY = 'raffler:history:v1' + NS;
-  const SEEDED_KEY  = 'raffler:seeded' + NS;
   const MAX_HISTORY = 25;
 
   /** @type {{id: string, name: string, tickets: number}[]} */
@@ -672,18 +671,6 @@
       if (!els.howtoModal.hidden) closeModal(els.howtoModal);
     }
   });
-
-  // Seed if first visit, so the app isn't empty for newcomers
-  if (contestants.length === 0 && history.length === 0 && !localStorage.getItem(SEEDED_KEY)) {
-    contestants = [
-      { id: uid(), name: 'Alex', tickets: 3 },
-      { id: uid(), name: 'Brianna', tickets: 5 },
-      { id: uid(), name: 'Chen', tickets: 2 },
-      { id: uid(), name: 'Dani', tickets: 1 },
-    ];
-    saveContestants();
-    try { localStorage.setItem(SEEDED_KEY, '1'); } catch (_) {}
-  }
 
   // Initial render
   resetReel();
