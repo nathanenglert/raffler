@@ -70,18 +70,6 @@ Names with commas should be wrapped in double quotes. Tickets default to `1` if 
 
 `app.js` is a single IIFE — see `CLAUDE.md` for an architecture overview.
 
-## Deployment
-
-The repo is pre-configured to deploy to **GitHub Pages** via GitHub Actions:
-
-1. Push to GitHub.
-2. In **Settings → Pages**, set the source to **GitHub Actions**.
-3. Pushes to `main` trigger `.github/workflows/pages.yml`, which uploads the repo root as-is.
-
-The site will be served at `https://<your-username>.github.io/<repo-name>/`.
-
-Because it's pure static files, it deploys equally well to Netlify, Vercel, Cloudflare Pages, S3, or any static host.
-
 ## Browser support
 
 Modern evergreen browsers — Chrome, Firefox, Safari, Edge. Requires `localStorage` and `crypto.getRandomValues` (falls back to `Math.random` if unavailable).
